@@ -1,9 +1,10 @@
 import type Author from './author'
+import Dates from './dates'
 
 type PostType = {
   slug: string
   title: string
-  date: string
+  dates: Dates
   coverImage: string
   author: Author
   excerpt: string

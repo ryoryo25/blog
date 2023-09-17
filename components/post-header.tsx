@@ -3,15 +3,16 @@ import DateFormatter from './date-formatter'
 import CoverImage from './cover-image'
 import PostTitle from './post-title'
 import type Author from '../interfaces/author'
+import type Dates from '../interfaces/dates'
 
 type Props = {
   title: string
   coverImage: string
-  date: string
+  dates: Dates
   author: Author
 }
 
-const PostHeader = ({ title, coverImage, date, author }: Props) => {
+const PostHeader = ({ title, coverImage, dates, author }: Props) => {
   return (
     <>
       <PostTitle>{title}</PostTitle>
@@ -26,7 +27,7 @@ const PostHeader = ({ title, coverImage, date, author }: Props) => {
           <Avatar name={author.name} picture={author.picture} />
         </div>
         <div className="mb-6 text-lg">
-          <DateFormatter dateString={date} />
+          <DateFormatter dates={dates} />
         </div>
       </div>
     </>

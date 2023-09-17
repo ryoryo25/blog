@@ -3,11 +3,12 @@ import DateFormatter from './date-formatter'
 import CoverImage from './cover-image'
 import Link from 'next/link'
 import type Author from '../interfaces/author'
+import type Dates from '../interfaces/dates'
 
 type Props = {
   title: string
   coverImage: string
-  date: string
+  dates: Dates
   excerpt: string
   author: Author
   slug: string
@@ -16,7 +17,7 @@ type Props = {
 const HeroPost = ({
   title,
   coverImage,
-  date,
+  dates,
   excerpt,
   author,
   slug,
@@ -38,7 +39,7 @@ const HeroPost = ({
             </Link>
           </h3>
           <div className="mb-4 md:mb-0 text-lg">
-            <DateFormatter dateString={date} />
+            <DateFormatter dates={dates} />
           </div>
         </div>
         <div>
