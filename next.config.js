@@ -1,9 +1,11 @@
-const prefix = process.env.GITHUB_ACTIONS ? "/blog" : ""
+const prefix = process.env.GITHUB_ACTIONS ? undefined : ''
 
 module.exports = {
+  output: 'export',
   images: {
     unoptimized: true,
   },
-  basePath: prefix,
   assetPrefix: prefix,
+  basePath: prefix,
+  trailingSlash: true,
 }
