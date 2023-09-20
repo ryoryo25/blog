@@ -1,7 +1,5 @@
 import Container from '../components/container'
 import ListPosts from '../components/list-posts'
-import Intro from '../components/intro'
-import Header from '../components/header'
 import Layout from '../components/layout'
 import { getAllPosts } from '../lib/api'
 import Head from 'next/head'
@@ -20,9 +18,7 @@ export default function Index({ allPosts }: Props) {
           <title>{BLOG_NAME}</title>
         </Head>
         <Container>
-          {/* <div className="max-w-3xl"> */}
             {allPosts.length > 0 && <ListPosts posts={allPosts} />}
-          {/* </div> */}
         </Container>
       </Layout>
     </>
