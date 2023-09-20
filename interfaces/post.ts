@@ -1,4 +1,3 @@
-import type Author from './author'
 import Dates from './dates'
 
 type PostType = {
@@ -6,7 +5,6 @@ type PostType = {
   title: string
   dates: Dates
   coverImage: string
-  author: Author
   ogImage: {
     url: string
   }

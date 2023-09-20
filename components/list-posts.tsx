@@ -15,7 +15,6 @@ const ListPosts = ({ posts }: Props) => {
             title={post.title}
             coverImage={post.coverImage}
             dates={post.dates}
-            author={post.author}
             slug={post.slug}
           />
         ))}
