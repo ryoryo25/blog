@@ -1,11 +1,8 @@
-const prefix = process.env.GITHUB_ACTIONS ? undefined : ''
-
 module.exports = {
-  output: 'export',
+  output: process.env.NODE_ENV == 'development' ? undefined : 'export',
   images: {
     unoptimized: true,
   },
-  assetPrefix: prefix,
-  basePath: prefix,
+  basePath: process.env.GITHUB_ACTIONS ? undefined : '',
   trailingSlash: true,
 }

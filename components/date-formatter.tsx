@@ -5,18 +5,22 @@ type Props = {
   dates: Dates
 }
 
+function formatDate(date: string): string {
+  const dateFormat = 'yyyy-MM-dd'
+  return format(parseISO(date), dateFormat)
+}
+
 const DateFormatter = ({ dates }: Props) => {
-  const postDate = parseISO(dates.postDate)
-  const postDateHTML = <time dateTime={dates.postDate}>{format(postDate, 'LLLL	d, yyyy')}</time>
+  const postDate = formatDate(dates.postDate)
 
   if (dates.updateDate === '') {
-    return postDateHTML
+    return (<p><b>Posted:</b> <time dateTime={dates.postDate}>{postDate}</time></p>)
   } else {
-    const updateDate = parseISO(dates.updateDate)
+    const updateDate = formatDate(dates.updateDate)
     return (
       <>
-        {postDateHTML}<br/>
-        <time dateTime={dates.updateDate}>{format(updateDate, 'LLLL	d, yyyy')}</time>
+        <p><b>Last Modified:</b> <time dateTime={dates.updateDate}>{updateDate}</time></p>
+        <p><b>Posted:</b> {postDate}</p>
       </>
       )
   }

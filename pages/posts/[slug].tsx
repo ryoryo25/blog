@@ -8,9 +8,9 @@ import Layout from '../../components/layout'
 import { getPostBySlug, getAllPosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import Head from 'next/head'
-import { CMS_NAME } from '../../lib/constants'
 import markdownToHtml from '../../lib/markdownToHtml'
 import type PostType from '../../interfaces/post'
+import { BLOG_NAME } from '../../lib/constants'
 
 type Props = {
   post: PostType
@@ -20,30 +20,32 @@ type Props = {
 
 export default function Post({ post, morePosts, preview }: Props) {
   const router = useRouter()
-  const title = `${post.title} | Next.js Blog Example with ${CMS_NAME}`
+  const title = `${post.title} | ${BLOG_NAME}`
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
   return (
     <Layout preview={preview}>
       <Container>
-        <Header />
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
             <article className="mb-32">
               <Head>
+                {/* inject head data */}
                 <title>{title}</title>
                 <meta property="og:image" content={post.ogImage.url} />
               </Head>
-              <PostHeader
-                title={post.title}
-                coverImage={post.coverImage}
-                dates={post.dates}
-                author={post.author}
-              />
-              <PostBody content={post.content} />
+              <div className="max-w-3xl mx-auto">
+                <PostHeader
+                  title={post.title}
+                  coverImage={post.coverImage}
+                  dates={post.dates}
+                  author={post.author}
+                />
+                <PostBody content={post.content} />
+              </div>
             </article>
           </>
         )}
