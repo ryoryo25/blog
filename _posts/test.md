@@ -1,11 +1,9 @@
 ---
 title: '遠征パッキングリスト'
-coverImage: '/assets/blog/dynamic-routing/cover.jpg'
+coverImage: null
 dates:
-  postDate: '2023-09-20T07:48:39Z'
-  updateDate: ''
-ogImage:
-  url: '/assets/blog/dynamic-routing/cover.jpg'
+  postDate: '2023-09-20T07:48:39.322Z'
+  updateDate: null
 ---
 
 # ライブ用品

@@ -16,7 +16,7 @@ function getPostDateHTML(dates: Dates): JSX.Element {
   const postDate = formatDate(dates.postDate)
   const postIcon = (<FontAwesomeIcon icon={faPenToSquare} />)
 
-  if (dates.updateDate === '') {
+  if (dates.updateDate === null) {
     return <>{postIcon} <time dateTime={dates.postDate}>{postDate}</time></>
   } else {
     return <>{postIcon} {postDate}</>
@@ -24,7 +24,7 @@ function getPostDateHTML(dates: Dates): JSX.Element {
 }
 
 function getUpdateDateHTML(dates: Dates): JSX.Element {
-  if (dates.updateDate === '') {
+  if (dates.updateDate === null) {
     return <></>
   } else {
     const updateDate = formatDate(dates.updateDate)

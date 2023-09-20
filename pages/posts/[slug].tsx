@@ -10,6 +10,8 @@ import Head from 'next/head'
 import markdownToHtml from '../../lib/markdownToHtml'
 import type PostType from '../../interfaces/post'
 import { BLOG_NAME } from '../../lib/constants'
+import { PostEntry, arrayPostEntry } from '../../interfaces/post'
+import { url } from '../../utils/config'
 
 type Props = {
   post: PostType
@@ -34,7 +36,7 @@ export default function Post({ post, morePosts, preview }: Props) {
               <Head>
                 {/* inject head data */}
                 <title>{title}</title>
-                <meta property="og:image" content={post.ogImage.url} />
+                <meta property="og:image" content={url(post.coverImage)} />
               </Head>
               <div className="max-w-3xl mx-auto">
                 <PostHeader
@@ -59,14 +61,7 @@ type Params = {
 }
 
 export async function getStaticProps({ params }: Params) {
-  const post = getPostBySlug(params.slug, [
-    'title',
-    'dates',
-    'slug',
-    'content',
-    'ogImage',
-    'coverImage',
-  ])
+  const post = getPostBySlug(params.slug, arrayPostEntry)
   const content = await markdownToHtml(post.content || '')
 
   return {
@@ -80,7 +75,7 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(['slug'])
+  const posts = getAllPosts([PostEntry.SLUG])
 
   return {
     paths: posts.map((post) => {

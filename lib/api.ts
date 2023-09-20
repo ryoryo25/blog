@@ -1,7 +1,9 @@
 import fs from 'fs'
 import { join } from 'path'
 import matter from 'gray-matter'
-import Dates from '../interfaces/dates'
+import type Dates from '../interfaces/dates'
+import { DEFAULT_COVER } from './constants'
+import { PostEntry } from '../interfaces/post'
 
 const postsDirectory = join(process.cwd(), '_posts')
 
@@ -21,17 +23,22 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
 
   const items: Items = {}
 
+  console.log(data)
+
   // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {
-    if (field === 'slug') {
+    if (field === PostEntry.SLUG) {
       items[field] = realSlug
     }
-    if (field === 'content') {
+    if (field === PostEntry.CONTENT) {
       items[field] = content
     }
 
     if (typeof data[field] !== 'undefined') {
       items[field] = data[field]
+    }
+    if (field === PostEntry.COVER_IMAGE && data[field] === null) {
+      items[field] = DEFAULT_COVER
     }
   })
 
