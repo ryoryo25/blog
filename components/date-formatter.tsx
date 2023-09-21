@@ -1,7 +1,7 @@
 import { parseISO, format } from 'date-fns'
 import Dates from '../interfaces/dates'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPenToSquare, faRotate } from '@fortawesome/free-solid-svg-icons'
+import { FaPenToSquare, FaRotate } from 'react-icons/fa6'
+import fa from './fa.module.css'
 
 type Props = {
   dates: Dates
@@ -14,7 +14,7 @@ function formatDate(date: string): string {
 
 function getPostDateHTML(dates: Dates): JSX.Element {
   const postDate = formatDate(dates.postDate)
-  const postIcon = (<FontAwesomeIcon icon={faPenToSquare} />)
+  const postIcon = (<FaPenToSquare className={fa['fa']} />)
 
   if (dates.updateDate === null) {
     return <>{postIcon} <time dateTime={dates.postDate}>{postDate}</time></>
@@ -28,7 +28,7 @@ function getUpdateDateHTML(dates: Dates): JSX.Element {
     return <></>
   } else {
     const updateDate = formatDate(dates.updateDate)
-    const updateIcon = (<FontAwesomeIcon icon={faRotate} />)
+    const updateIcon = (<FaRotate className={fa['fa']} />)
     return <>{updateIcon} <time dateTime={dates.updateDate}>{updateDate}</time></>
   }
 }
