@@ -12,5 +12,6 @@ To create the blog posts we use [`remark`](https://github.com/remarkjs/remark) a
 
 ## To-Dos
 
+- [ ] Change markdown parser
 - [ ] Add table of contents
 - [ ] Adapt to Next.js 13
