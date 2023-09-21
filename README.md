@@ -15,3 +15,4 @@ To create the blog posts we use [`remark`](https://github.com/remarkjs/remark) a
 - [ ] Change markdown parser
 - [ ] Add table of contents
 - [ ] Adapt to Next.js 13
+- [ ] Generate OG image using [@vercel/og](https://zenn.dev/hiromu617/articles/c03fef6f4d6c6e)
