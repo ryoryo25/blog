@@ -23,8 +23,6 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
 
   const items: Items = {}
 
-  console.log(data)
-
   // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {
     if (field === PostEntry.SLUG) {
