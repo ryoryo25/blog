@@ -1,7 +1,7 @@
 export const AUTHOR_NAME = 'ry_Tom'
-// export const AUTHOR_ICON = `/assets/icon/${AUTHOR_NAME}.png`
-export const AUTHOR_ICON = 'https://avatars.githubusercontent.com/u/31386783'
 export const AUTHOR_GITHUB = 'https://github.com/ryoryo25'
+// export const AUTHOR_ICON = `/assets/icon/${AUTHOR_NAME}.png`
+export const AUTHOR_ICON = `${AUTHOR_GITHUB}.png`
 
 export const BLOG_NAME = `${AUTHOR_NAME}\'s Blog`
 export const COPY_RIGHT = `© ${AUTHOR_NAME}. All rights reserved.`
