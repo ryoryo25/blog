@@ -14,9 +14,7 @@ const CoverImage = ({ title, src, slug }: Props) => {
     <Image
       src={url(src)}
       alt={`Cover Image for ${title}`}
-      className={cn('shadow-sm w-full', {
-        'hover:shadow-lg transition-shadow duration-200': slug,
-      })}
+      className={cn('w-full', slug === undefined ? 'shadow-sm' : '')} // display shadow if used in post
       width={1300}
       height={630}
     />

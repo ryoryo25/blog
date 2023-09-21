@@ -20,7 +20,7 @@ const PostPreview = ({
     <Link
       as={`/posts/${slug}`}
       href="/posts/[slug]"
-      className="md:px-6 md:py-10"
+      className="md:px-6 md:py-10 md:shadow-sm"
     >
       <div className="mb-5">
         <CoverImage slug={slug} title={title} src={coverImage} />
