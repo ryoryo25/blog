@@ -6,23 +6,47 @@ dates:
   updateDate: null
 ---
 
-# ライブ用品
-- ペンライト
-- タオル
-- スケブとかあれば
+# 見出し1
+## 見出し2
+### 見出し3
+#### 見出し4
 
-# 旅行用品
-- 財布
-- スマホ
-- 新幹線等のチケット
+- Hello!
+- Hola!
+  - Bonjour!
+  * Hi!
+    + aaa
+      - bbb
+
+1. First
+2. Second
+
+[Zenn](https://zenn.dev/zenn/articles/markdown-guide)
+
+![altテキスト](https://画像のURL)
+
+| Head | Head | Head |
+| ---- | ---- | ---- |
+| Text | Text | Text |
+| Text | Text | Text |
+
+```js
+const great = () => {
+  console.log("Awesome");
+};
+```
+
+```js:fooBar.js
+const great = () => {
+  console.log("Awesome")
+}
+```
+
 ---
-- 着換え×日数
-	- 下着
-	- 靴下
-	- 普通の服
-- 飲み薬・塗り薬 (ボディーソープとかでかゆくなりがち)
-- コンタクト・メガネ
-- 電源・モババ系
-- ニベア
-- 折りたたみ傘
-- ヘアアイロン
+
+*イタリック*
+**太字**
+~~打ち消し線~~
+インラインで`code`を挿入する
+
+<!-- TODO: ◯◯について追記する -->
