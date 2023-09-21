@@ -13,6 +13,6 @@ To create the blog posts we use [`remark`](https://github.com/remarkjs/remark) a
 ## To-Dos
 
 - [ ] Change markdown parser
-- [ ] Add table of contents
-- [ ] Adapt to Next.js 13
+- [ ] Add [table of contents](https://zenn.dev/angelecho/articles/8f200e51a6b475)
+- [ ] Adapt to [Next.js 13](https://dev.to/slanted_dev/nextjs-13-blog-starter-1b6p)
 - [ ] Generate OG image using [@vercel/og](https://zenn.dev/hiromu617/articles/c03fef6f4d6c6e)
