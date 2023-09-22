@@ -23,7 +23,7 @@ dates:
 
 [Zenn](https://zenn.dev/zenn/articles/markdown-guide)
 
-![altテキスト](https://画像のURL)
+![altテキスト](/assets/blog/default/cover.jpg)
 
 | Head | Head | Head |
 | ---- | ---- | ---- |
@@ -36,7 +36,7 @@ const great = () => {
 };
 ```
 
-```js:fooBar.js
+```js
 const great = () => {
   console.log("Awesome")
 }
@@ -50,3 +50,29 @@ const great = () => {
 インラインで`code`を挿入する
 
 <!-- TODO: ◯◯について追記する -->
+
+# GFM
+
+## Autolink literals
+
+www.example.com, https://example.com, and contact@example.com.
+
+## Footnote
+
+A note[^1]
+
+[^1]: Big note.
+
+## Strikethrough
+
+~one~ or ~~two~~ tildes.
+
+## Table
+
+| a | b  |  c |  d  |
+| - | :- | -: | :-: |
+
+## Tasklist
+
+* [ ] to do
+* [x] done
