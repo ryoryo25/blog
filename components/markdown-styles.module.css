@@ -1,5 +1,6 @@
 /* Retrieved from https://github.com/sindresorhus/github-markdown-css/blob/main/github-markdown.css */
 
+
 .markdown {
   color-scheme: light;
   --color-prettylights-syntax-comment: #6e7781;
@@ -31,25 +32,26 @@
   --color-prettylights-syntax-meta-diff-range: #8250df;
   --color-prettylights-syntax-brackethighlighter-angle: #57606a;
   --color-prettylights-syntax-sublimelinter-gutter-mark: #8c959f;
-  --color-fg-default: #24292f;
   --color-prettylights-syntax-constant-other-reference-link: #0a3069;
-  --color-fg-subtle: #6e7781;
+  --color-fg-default: #24292f;
   --color-fg-muted: #57606a;
-  --color-canvas-subtle: #f6f8fa;
+  --color-fg-subtle: #6e7781;
   --color-canvas-default: #ffffff;
-  --color-border-muted: hsla(210,18%,87%,1);
+  --color-canvas-subtle: #f6f8fa;
   --color-border-default: #d0d7de;
-  --color-accent-fg: #0969da;
+  --color-border-muted: hsla(210,18%,87%,1);
   --color-neutral-muted: rgba(175,184,193,0.2);
-  --color-attention-subtle: #fff8c5;
+  --color-accent-fg: #0969da;
   --color-accent-emphasis: #0969da;
+  --color-attention-subtle: #fff8c5;
+  --color-danger-fg: #cf222e;
 }
-    --color-danger-fg: #cf222e;
 
 .markdown {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   margin: 0;
+  color: var(--color-fg-default);
   background-color: var(--color-canvas-default);
   font-size: 16px;
   line-height: 1.5;
@@ -155,7 +157,7 @@
 .markdown kbd,
 .markdown pre,
 .markdown samp {
-  font-family: monospace;
+  @apply font-mono;
   font-size: 1em;
 }
 
@@ -365,6 +367,27 @@
   padding-left: 2em;
 }
 
+/* --- added --- */
+.markdown ul {
+  list-style-type: disc;
+}
+
+.markdown ul ul,
+.markdown ol ul {
+  list-style-type: circle;
+}
+
+.markdown ul ul ul,
+.markdown ul ol ul,
+.markdown ol ul ul,
+.markdown ol ol ul {
+  list-style-type: square;
+}
+
+.markdown ol {
+  list-style-type: decimal;
+}
+
 .markdown ol ol,
 .markdown ul ol {
   list-style-type: lower-roman;
@@ -384,14 +407,14 @@
 .markdown tt,
 .markdown code,
 .markdown samp {
-  font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
+  @apply font-mono;
   font-size: 12px;
 }
 
 .markdown pre {
   margin-top: 0;
   margin-bottom: 0;
-  font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
+  @apply font-mono;
   font-size: 12px;
   word-wrap: normal;
 }
@@ -837,12 +860,14 @@
 
 .markdown .footnotes ol {
   padding-left: 16px;
+  list-style-type: upper-roman;
 }
 
 .markdown .footnotes ol ul {
   display: inline-block;
   padding-left: 16px;
   margin-top: 16px;
+  list-style-type: upper-roman;
 }
 
 .markdown .footnotes li {
@@ -866,7 +891,7 @@
 }
 
 .markdown .footnotes .data-footnote-backref g-emoji {
-  font-family: monospace;
+  @apply font-mono;
 }
 
 .markdown .pl-c {
@@ -1003,6 +1028,10 @@
 .markdown g-emoji img {
   width: 1em;
   height: 1em;
+}
+
+.markdown ul.contains-task-list {
+  list-style-type: none;
 }
 
 .markdown .task-list-item {
