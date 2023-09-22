@@ -4,7 +4,7 @@ import { roboto, robotomono, notojp } from '../utils/font'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div className={`${roboto.variable} ${robotomono.variable} ${notojp.variable} font-sans`}>
+    <div className={`${roboto.variable} ${robotomono.variable} ${notojp.variable} font-sans text-base-color`}>
       <Component {...pageProps} />
     </div>
   )
