@@ -18,3 +18,12 @@ To create the blog posts we use [`remark`](https://github.com/remarkjs/awesome-r
 - [ ] Separate list of post by 20 posts
 - [ ] Adapt to [Next.js 13](https://dev.to/slanted_dev/nextjs-13-blog-starter-1b6p)
 - [ ] Generate OG image using [@vercel/og](https://zenn.dev/hiromu617/articles/c03fef6f4d6c6e)
+
+## References
+
+- やじはむ. [Next.jsを使った個人ブログ作成のまとめ](https://zenn.dev/rorisutarou/articles/813a97d795cf74), 2023.
+- Kairi Watanabe. [Next.jsでテックブログを作った話](https://blog.kinto-technologies.com/posts/2022-12-25-develop_techblog/), 2022.
+- Vercel, Inc. [Next.js Documentation](https://nextjs.org/docs), 2023.
+- Tailwind Labs Inc. [Tailwind CSS Documentation](https://tailwindcss.com/docs/installation), 2023.
+- Gen Tamura. [Next.js with Tailwind CSS に Google Fonts を読み込む](https://zenn.dev/gentamura/articles/b3010bdf838554), 2023.
+- Reffect. [Next.jsを利用した初めての本格的Markdownブログサイトの構築](https://reffect.co.jp/react/nextjs-markdown-blog/), 2023.
