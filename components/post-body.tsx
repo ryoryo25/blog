@@ -3,7 +3,6 @@ type Props = {
 }
 
 const PostBody = ({ content }: Props) => {
-  console.log(content)
   return (
     <div
       className="markdown"

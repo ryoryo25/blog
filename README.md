@@ -13,7 +13,7 @@ To create the blog posts we use [`remark`](https://github.com/remarkjs/awesome-r
 ## To-Dos
 
 - [X] ~~*Change markdown parser*~~ [2023-09-22]
-- [ ] Add [table of contents](https://zenn.dev/angelecho/articles/8f200e51a6b475)
+- [X] ~~*Add [table of contents](https://zenn.dev/angelecho/articles/8f200e51a6b475)*~~ [2023-09-29]
 - [ ] Add previous & next article links
 - [ ] Separate list of post by 20 posts
 - [ ] Adapt to [Next.js 13](https://dev.to/slanted_dev/nextjs-13-blog-starter-1b6p)

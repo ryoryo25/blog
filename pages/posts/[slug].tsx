@@ -12,6 +12,9 @@ import type PostType from '../../interfaces/post'
 import { BLOG_NAME } from '../../lib/constants'
 import { PostEntry, arrayPostEntry } from '../../interfaces/post'
 import { url } from '../../utils/config'
+import TOC from '../../components/toc'
+import ArticleContainer from '../../components/article-container'
+import SidebarContainer from '../../components/sidebar-container'
 
 type Props = {
   post: PostType
@@ -31,23 +34,25 @@ export default function Post({ post, morePosts, preview }: Props) {
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
-          <>
-            <article className="mb-32">
+          <div className="flex justify-center">
+            <ArticleContainer>
               <Head>
                 {/* inject head data */}
                 <title>{title}</title>
                 <meta property="og:image" content={url(post.coverImage)} />
               </Head>
-              <div className="max-w-3xl mx-auto">
-                <PostHeader
-                  title={post.title}
-                  coverImage={post.coverImage}
-                  dates={post.dates}
-                />
-                <PostBody content={post.content} />
-              </div>
-            </article>
-          </>
+              <PostHeader
+                title={post.title}
+                coverImage={post.coverImage}
+                dates={post.dates}
+              />
+              <PostBody content={post.content} />
+            </ArticleContainer>
+            <SidebarContainer>
+              <TOC toc={post.toc} />
+              {/* TODO: add ad */}
+            </SidebarContainer>
+          </div>
         )}
       </Container>
     </Layout>
@@ -62,12 +67,13 @@ type Params = {
 
 export async function getStaticProps({ params }: Params) {
   const post = getPostBySlug(params.slug, arrayPostEntry)
-  const content = await markdownToHtml(post.content || '')
+  const { toc, content } = await markdownToHtml(post.content || '')
 
   return {
     props: {
       post: {
         ...post,
+        toc,
         content,
       },
     },

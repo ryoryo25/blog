@@ -31,7 +31,6 @@ const PostPreview = ({
       <div className="text-lg mb-4">
         <DateFormatter dates={dates} />
       </div>
-      {/* <Avatar name={author.name} picture={author.picture} /> */}
     </Link>
   )
 }
