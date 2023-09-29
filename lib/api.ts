@@ -24,21 +24,28 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
   const items: Items = {}
 
   // Ensure only the minimal needed data is exposed
-  fields.forEach((field) => {
+  for (let field of fields) {
     if (field === PostEntry.SLUG) {
       items[field] = realSlug
+      continue
     }
     if (field === PostEntry.CONTENT) {
       items[field] = content
+      continue
+    }
+    if (field === PostEntry.TOC) {
+      items[field] = null
+      continue
+    }
+    if (field === PostEntry.COVER_IMAGE && data[field] === null) {
+      items[field] = DEFAULT_COVER
+      continue
     }
 
     if (typeof data[field] !== 'undefined') {
       items[field] = data[field]
     }
-    if (field === PostEntry.COVER_IMAGE && data[field] === null) {
-      items[field] = DEFAULT_COVER
-    }
-  })
+  }
 
   return items
 }
