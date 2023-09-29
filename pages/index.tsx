@@ -3,7 +3,7 @@ import ListPosts from '../components/list-posts'
 import Layout from '../components/layout'
 import { getAllPosts } from '../lib/api'
 import Head from 'next/head'
-import Post from '../interfaces/post'
+import Post, { PostEntry } from '../interfaces/post'
 import { BLOG_NAME } from '../lib/constants'
 
 type Props = {
@@ -27,10 +27,10 @@ export default function Index({ allPosts }: Props) {
 
 export const getStaticProps = async () => {
   const allPosts = getAllPosts([
-    'title',
-    'dates',
-    'slug',
-    'coverImage',
+    PostEntry.TITLE,
+    PostEntry.DATES,
+    PostEntry.SLUG,
+    PostEntry.COVER_IMAGE,
   ])
 
   return {

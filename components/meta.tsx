@@ -38,9 +38,6 @@ const Meta = () => {
         content={BLOG_NAME}
       />
       <meta property="og:image" content={HOME_OG_IMAGE_URL} />
-
-      {/* style for highlihgt.js */}
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"></link>
     </Head>
   )
 }

@@ -6,7 +6,7 @@ import fa from './fa.module.css'
 
 const Footer = () => {
   return (
-    <footer className="bg-neutral-50 border-t border-neutral-200">
+    <footer className="mt-16 bg-neutral-50 border-t border-neutral-200">
       <Container>
         <div className="py-7 flex justify-center items-center">
           <Link href={AUTHOR_GITHUB} target="_blank" className="pr-3 border-r-2 border-neutral-200">
