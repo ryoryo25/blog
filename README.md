@@ -14,6 +14,7 @@ To create the blog posts we use [`remark`](https://github.com/remarkjs/awesome-r
 
 - [X] ~~*Change markdown parser*~~ [2023-09-22]
 - [X] ~~*Add [table of contents](https://zenn.dev/angelecho/articles/8f200e51a6b475)*~~ [2023-09-29]
+- [ ] Automate adding post date & update date, & erase metadata & change file name of images used by posts
 - [ ] Add previous & next article links
 - [ ] Separate list of post by 20 posts
 - [ ] Adapt to [Next.js 13](https://dev.to/slanted_dev/nextjs-13-blog-starter-1b6p)
