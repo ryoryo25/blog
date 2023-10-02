@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+SCRIPT=$(cd $(dirname $(readlink -f $0)); pwd)
+
+# 投稿日付 or 更新日付を記入
+# 画像のファイル名を変更
+# blog/_posts/にmarkdownを移動
+# blog/public/assets/blog/***/に画像ファイルを移動
+# commit & push
