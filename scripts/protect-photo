@@ -1,0 +1,37 @@
+#!/usr/bin/env python
+
+import sys
+import uuid
+from PIL import Image
+
+ORIGINAL_TO_RANDOM = {}
+
+def main():
+    if len(sys.argv) < 2:
+        print('Too few arguments!')
+        exit(1)
+
+    image_filename = sys.argv[1]
+    remove_exif(image_filename)
+
+def remove_exif(image_filename: str):
+    with Image.open(image_filename) as image:
+        # next 3 lines strip exif
+        image_data = list(image.getdata())
+        image_without_exif = Image.new(image.mode, image.size)
+        image_without_exif.putdata(image_data)
+
+        new_image_filename = random_filename(image_filename)
+        image_without_exif.save(new_image_filename)
+
+def random_filename(image_filename: str):
+    i = image_filename.rfind('/') + 1
+    path = image_filename[:i]
+    i = image_filename.rfind('.')
+    ext = image_filename[i:]
+    new = path + str(uuid.uuid4()) + ext
+    ORIGINAL_TO_RANDOM[image_filename] = new
+    return new
+
+if __name__ == '__main__':
+    main()
