@@ -6,7 +6,8 @@ import datetime
 
 def main():
     if len(sys.argv) < 2:
-        print()
+        print('Too few arguments!')
+        exit(1)
 
     path = sys.argv[1]
 
