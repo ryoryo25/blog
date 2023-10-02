@@ -17,6 +17,10 @@ To create the blog posts we use [`remark`](https://github.com/remarkjs/awesome-r
 - [ ] Automate adding post date & update date, & erase metadata & change file name of images used by posts
 - [ ] Add previous & next article links
 - [ ] [Separate list of post by 20 posts](https://reffect.co.jp/react/nextjs-markdown-blog/#%E3%83%9A%E3%83%BC%E3%82%B8%E3%83%8D%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E5%AE%9F%E8%A3%85)
+- [ ] Add tags to posts using front matter
+  ```yaml
+  tags: ['foo', 'bar', 'hoge']
+  ```
 - [ ] Adapt to [Next.js 13](https://dev.to/slanted_dev/nextjs-13-blog-starter-1b6p)
 - [ ] Generate OG image using [@vercel/og](https://zenn.dev/hiromu617/articles/c03fef6f4d6c6e)
 
