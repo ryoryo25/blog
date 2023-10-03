@@ -12,4 +12,4 @@ $SCRIPT_DIR/attach-date $TARGET_MD
 $SCRIPT_DIR/protect-photo $TARGET_MD
 
 # commit & push
-# git add $BLOG_DIR/. && git commit -m 'post/update '$1 && git push origin main
+git add $BLOG_DIR/. && git commit -m 'post/update '$1 && git push origin main
