@@ -1,5 +1,5 @@
 ---
-title: '遠征パッキングリスト'
+title: 'title'
 coverImage: null
 dates:
   postDate: null
