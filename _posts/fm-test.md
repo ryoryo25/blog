@@ -2,8 +2,8 @@
 title: '遠征パッキングリスト'
 coverImage: null
 dates:
-  postDate: '2023-09-20T07:48:39.322Z'
-  updateDate: null
+  postDate: '2023-10-02T16:26:40.477270'
+  updateDate: '2023-10-02T16:28:22.371671'
 ---
 
 # 見出し1
@@ -57,8 +57,6 @@ const great = () => {
 
 www.example.com, https://example.com, and contact@example.com.
 
-![altテキスト](/assets/blog/test/karuizawa.jpg)
-
 ## Footnote
 
 A note[^1]
@@ -78,7 +76,6 @@ A note[^1]
 
 * [ ] to do
 * [x] done
-* [ ] ![altテキスト](https://developers.google.com/static/maps/documentation/android-sdk/images/quickstart-map.png)
 
 ## Tasklist
 ## Tasklist
