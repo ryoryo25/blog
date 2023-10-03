@@ -4,6 +4,9 @@ import re
 import sys
 import datetime
 
+POST_PATTERN = re.compile(r'(^\s*postDate:\s*)([\s\S]*)([\r\n])')
+UPDATE_PATTERN = re.compile(r'(^\s*updateDate:\s*)([\s\S]*)([\r\n])')
+
 def main():
     if len(sys.argv) < 2:
         print('Too few arguments!')
@@ -30,26 +33,23 @@ def write_front_matter(path: str, new_lines: list[str]):
         f.writelines(new_lines)
 
 def has_post_date(lines: list[str]):
-    pat = re.compile(r'^\s*postDate:\s*([\s\S]*)[\r\n]')
     fm = front_matter(lines)
     for i, line in fm:
-        m = pat.match(line)
+        m = POST_PATTERN.match(line)
         if m:
-            return m.group(1) != 'null'
+            return m.group(2) != 'null'
     return False
 
 def add_post_date(lines: list[str]):
-    pat = re.compile(r'(^\s*postDate:\s*)[\s\S]*([\r\n])')
-    add_date(pat, lines)
+    add_date(POST_PATTERN, lines)
 
 def add_update_date(lines: list[str]):
-    pat = re.compile(r'(^\s*updateDate:\s*)[\s\S]*([\r\n])')
-    add_date(pat, lines)
+    add_date(UPDATE_PATTERN, lines)
 
-def add_date(pat, lines: list[str]):
+def add_date(pat: re.Pattern[str], lines: list[str]):
     now = datetime.datetime.now()
-    def format(m):
-        return f'{m.group(1)}\'{now.isoformat()}\'{m.group(2)}'
+    def format(m: re.Match[str]):
+        return f'{m.group(1)}\'{now.isoformat()}\'{m.group(3)}'
 
     fm = front_matter(lines)
     for i, line in fm:
