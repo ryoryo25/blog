@@ -3,7 +3,7 @@ title: '遠征パッキングリスト'
 coverImage: null
 dates:
   postDate: '2023-09-20T07:48:39.322Z'
-  updateDate: null
+  updateDate: '2023-10-03T17:59:19.852204'
 ---
 
 # 見出し1
