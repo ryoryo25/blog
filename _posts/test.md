@@ -57,7 +57,7 @@ const great = () => {
 
 www.example.com, https://example.com, and contact@example.com.
 
-![altテキスト](/assets/blog/preview/cover.jpg)
+![altテキスト](/assets/blog/test/karuizawa.jpg)
 
 ## Footnote
 
