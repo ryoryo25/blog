@@ -8,6 +8,7 @@ TARGET_MD = $BLOG_DIR/_posts/$1
 $SCRIPT_DIR/attach-date $TARGET_MD
 
 # 画像のファイル名を変更; protect-photo requires full path
+# Exif情報を削除
 $SCRIPT_DIR/protect-photo $TARGET_MD
 
 # commit & push
