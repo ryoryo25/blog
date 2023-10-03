@@ -9,6 +9,9 @@ type Props = {
 
 function formatDate(date: string): string {
   const dateFormat = 'yyyy-MM-dd'
+  if (date === null) {
+    date = new Date().toISOString()
+  }
   return format(parseISO(date), dateFormat)
 }
 
