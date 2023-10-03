@@ -57,6 +57,8 @@ const great = () => {
 
 www.example.com, https://example.com, and contact@example.com.
 
+![altテキスト](/assets/blog/preview/cover.jpg)
+
 ## Footnote
 
 A note[^1]
@@ -76,6 +78,7 @@ A note[^1]
 
 * [ ] to do
 * [x] done
+* [ ] ![altテキスト](https://developers.google.com/static/maps/documentation/android-sdk/images/quickstart-map.png)
 
 ## Tasklist
 ## Tasklist
