@@ -2,6 +2,7 @@ import Link from "next/link"
 import { ELLIPSIS } from "../lib/constants"
 
 type Props = {
+  key: number
   page: number
   current_page: number
 }

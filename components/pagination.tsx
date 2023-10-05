@@ -37,7 +37,7 @@ export default function Pagination({ pages, current_page }: Props) {
       />
       <div className="md:hidden whitespace-nowrap">{`${current_page} / ${pages.length}`}</div>
       <div className="hidden md:flex items-center justify-center">
-        {display_pages.map((page) => <PaginationItem page={page} current_page={current_page} />)}
+        {display_pages.map((page, i) => <PaginationItem key={i} page={page} current_page={current_page} />)}
       </div>
       <PaginationArrow
         role={ARROW_NEXT}
