@@ -2,7 +2,7 @@ type Props = {
   children?: React.ReactNode
 }
 
-const SidebarContainer = ({ children }: Props) => {
+export default function SidebarContainer({ children }: Props) {
   return (
     <aside className="sidebar hidden lg:block lg:w-1/5 ml-16">
       <div className="sticky top-36">
@@ -11,5 +11,3 @@ const SidebarContainer = ({ children }: Props) => {
     </aside>
   )
 }
-
-export default SidebarContainer

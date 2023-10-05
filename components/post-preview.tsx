@@ -10,12 +10,12 @@ type Props = {
   slug: string
 }
 
-const PostPreview = ({
+export default function PostPreview({
   title,
   coverImage,
   dates,
   slug,
-}: Props) => {
+}: Props) {
   return (
     <Link
       as={`/posts/${slug}`}
@@ -34,5 +34,3 @@ const PostPreview = ({
     </Link>
   )
 }
-
-export default PostPreview

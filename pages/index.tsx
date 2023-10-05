@@ -12,20 +12,18 @@ type Props = {
 
 export default function Index({ allPosts }: Props) {
   return (
-    <>
-      <Layout>
-        <Head>
-          <title>{BLOG_NAME}</title>
-        </Head>
-        <Container>
-            {allPosts.length > 0 && <ListPosts posts={allPosts} />}
-        </Container>
-      </Layout>
-    </>
+    <Layout>
+      <Head>
+        <title>{BLOG_NAME}</title>
+      </Head>
+      <Container>
+          {allPosts.length > 0 && <ListPosts posts={allPosts} />}
+      </Container>
+    </Layout>
   )
 }
 
-export const getStaticProps = async () => {
+export async function getStaticProps() {
   const allPosts = getAllPosts([
     PostEntry.TITLE,
     PostEntry.DATES,
