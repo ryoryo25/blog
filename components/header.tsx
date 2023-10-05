@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { AUTHOR_ICON, AUTHOR_NAME, BLOG_NAME } from '../lib/constants'
 
-const Header = () => {
+export default function Header() {
   return (
     <header className="sticky w-full top-0 left-0 z-10 mb-14 bg-white border-b border-neutral-200">
       <div className="container flex items-center px-8 md:px-16 py-7">
@@ -15,5 +15,3 @@ const Header = () => {
     </header>
   )
 }
-
-export default Header

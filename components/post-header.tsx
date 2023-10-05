@@ -9,7 +9,7 @@ type Props = {
   dates: Dates
 }
 
-const PostHeader = ({ title, coverImage, dates }: Props) => {
+export default function PostHeader({ title, coverImage, dates }: Props) {
   return (
     <>
       <PostTitle>{title}</PostTitle>
@@ -22,5 +22,3 @@ const PostHeader = ({ title, coverImage, dates }: Props) => {
     </>
   )
 }
-
-export default PostHeader

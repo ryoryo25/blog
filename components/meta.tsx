@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { BLOG_NAME, HOME_OG_IMAGE_URL } from '../lib/constants'
 import { url } from '../utils/config'
 
-const Meta = () => {
+export default function Meta() {
   return (
     <Head>
       <link
@@ -41,5 +41,3 @@ const Meta = () => {
     </Head>
   )
 }
-
-export default Meta

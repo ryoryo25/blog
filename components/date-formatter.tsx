@@ -36,12 +36,10 @@ function getUpdateDateHTML(dates: Dates): JSX.Element {
   }
 }
 
-const DateFormatter = ({ dates }: Props) => {
+export default function DateFormatter({ dates }: Props) {
   return (
     <div className="flex items-center">
       <div className="mr-3">{getPostDateHTML(dates)}</div>
       <div>{getUpdateDateHTML(dates)}</div>
     </div>)
 }
-
-export default DateFormatter

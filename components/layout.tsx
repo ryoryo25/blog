@@ -7,7 +7,7 @@ type Props = {
   children: React.ReactNode
 }
 
-const Layout = ({ preview, children }: Props) => {
+export default function Layout({ preview, children }: Props) {
   return (
     <>
       <Meta />
@@ -17,5 +17,3 @@ const Layout = ({ preview, children }: Props) => {
     </>
   )
 }
-
-export default Layout

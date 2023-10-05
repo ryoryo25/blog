@@ -2,7 +2,7 @@ type Props = {
   content: string
 }
 
-const PostBody = ({ content }: Props) => {
+export default function PostBody({ content }: Props) {
   return (
     <div
       className="markdown"
@@ -10,5 +10,3 @@ const PostBody = ({ content }: Props) => {
     />
   )
 }
-
-export default PostBody

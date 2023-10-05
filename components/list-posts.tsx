@@ -5,7 +5,7 @@ type Props = {
   posts: Post[]
 }
 
-const ListPosts = ({ posts }: Props) => {
+export default function ListPosts({ posts }: Props) {
   return (
     <section>
       <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-8 gap-y-8 md:gap-y-12 mb-32">
@@ -22,5 +22,3 @@ const ListPosts = ({ posts }: Props) => {
     </section>
   )
 }
-
-export default ListPosts

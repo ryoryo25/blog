@@ -4,7 +4,7 @@ import Container from './container'
 import { FaGithub } from 'react-icons/fa6'
 import fa from './fa.module.css'
 
-const Footer = () => {
+export default function Footer() {
   return (
     <footer className="mt-16 bg-neutral-50 border-t border-neutral-200">
       <Container>
@@ -20,5 +20,3 @@ const Footer = () => {
     </footer>
   )
 }
-
-export default Footer

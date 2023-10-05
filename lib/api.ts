@@ -68,3 +68,7 @@ export function getAllPosts(fields: string[] = []) {
     })
   return posts
 }
+
+export function range(start: number, end: number, length = end - start + 1) {
+  return Array.from({ length }, (_, i) => start + i)
+}
