@@ -13,7 +13,9 @@ export default function Pagination({ pages, current_page }: Props) {
   const last_page = pages.slice(-1)[0]
 
   let display_pages = null
-  if (current_page < first_page + DISPLAY_ITEMS) {
+  if (pages.length <= DISPLAY_ITEMS + 4) {
+    display_pages = pages
+  }else if (current_page < first_page + DISPLAY_ITEMS) {
     // + 2 means first_page & ellipsis
     display_pages = [...pages.slice(0, DISPLAY_ITEMS + 2), ELLIPSIS, last_page]
   } else if (current_page > last_page - DISPLAY_ITEMS) {
