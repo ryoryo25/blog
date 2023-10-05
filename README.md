@@ -16,7 +16,7 @@ To create the blog posts we use [`remark`](https://github.com/remarkjs/awesome-r
 - [X] ~~*Add [table of contents](https://zenn.dev/angelecho/articles/8f200e51a6b475)*~~ [2023-09-29]
 - [X] ~~*Automate adding post date & update date, & erase metadata & change file name of images used by posts*~~ [2023-10-03]
 - [ ] Add previous & next article links
-- [ ] [Separate list of post by 20 posts](https://reffect.co.jp/react/nextjs-markdown-blog/#%E3%83%9A%E3%83%BC%E3%82%B8%E3%83%8D%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E5%AE%9F%E8%A3%85)
+- [X] ~~*[Separate list of post by 20 posts](https://reffect.co.jp/react/nextjs-markdown-blog/#%E3%83%9A%E3%83%BC%E3%82%B8%E3%83%8D%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E5%AE%9F%E8%A3%85)*~~ [2023-10-05]
 - [ ] Add tags to posts using front matter
   ```yaml
   tags: ['foo', 'bar', 'hoge']
