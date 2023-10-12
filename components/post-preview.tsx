@@ -1,6 +1,6 @@
-import DateFormatter from './date-formatter'
-import CoverImage from './cover-image'
 import Link from 'next/link'
+import CoverImage from './cover-image'
+import DateFormatter from './date-formatter'
 import type Dates from '../interfaces/dates'
 
 type Props = {

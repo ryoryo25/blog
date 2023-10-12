@@ -1,7 +1,6 @@
-import Link from "next/link"
+import PaginationArrow from "./pagination-arrow"
 import PaginationItem from "./pagination-item"
 import { ELLIPSIS, DISPLAY_ITEMS, ARROW_PREV, ARROW_NEXT } from "../lib/constants"
-import PaginationArrow from "./pagination-arrow"
 
 type Props = {
   pages: number[]

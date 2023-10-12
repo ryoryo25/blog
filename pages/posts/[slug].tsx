@@ -1,26 +1,26 @@
-import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
+import Head from 'next/head'
+import { useRouter } from 'next/router'
+import ArticleContainer from '../../components/article-container'
+import BottomNavigation from '../../components/bottom-navigation'
 import Container from '../../components/container'
+import Layout from '../../components/layout'
 import PostBody from '../../components/post-body'
 import PostHeader from '../../components/post-header'
-import Layout from '../../components/layout'
-import { getPostBySlug, getAllPosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
-import Head from 'next/head'
-import markdownToHtml from '../../lib/markdownToHtml'
-import type PostType from '../../interfaces/post'
-import { BLOG_NAME } from '../../lib/constants'
-import { PostEntry, arrayPostEntry } from '../../interfaces/post'
-import { url } from '../../utils/config'
-import TOC from '../../components/toc'
-import ArticleContainer from '../../components/article-container'
 import SidebarContainer from '../../components/sidebar-container'
-import BottomNavigation from '../../components/bottom-navigation'
+import TOC from '../../components/toc'
+import type Post from '../../interfaces/post'
+import { PostEntry, arrayPostEntry } from '../../interfaces/post'
+import { getPostBySlug, getAllPosts } from '../../lib/api'
+import { BLOG_NAME } from '../../lib/constants'
+import markdownToHtml from '../../lib/markdownToHtml'
+import { url } from '../../utils/config'
 
 type Props = {
-  post: PostType
-  prev: PostType
-  next: PostType
+  post: Post
+  prev: Post
+  next: Post
   preview?: boolean
 }
 

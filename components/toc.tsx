@@ -1,5 +1,5 @@
-import { INDEX_TITLE } from "../lib/constants"
 import TOCBody from "./toc-body"
+import { INDEX_TITLE } from "../lib/constants"
 
 type Props = {
   toc: string

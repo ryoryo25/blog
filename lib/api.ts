@@ -1,8 +1,8 @@
 import fs from 'fs'
-import { join } from 'path'
 import matter from 'gray-matter'
-import type Dates from '../interfaces/dates'
+import { join } from 'path'
 import { DEFAULT_COVER } from './constants'
+import type Dates from '../interfaces/dates'
 import { PostEntry } from '../interfaces/post'
 
 const postsDirectory = join(process.cwd(), '_posts')

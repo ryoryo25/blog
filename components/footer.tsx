@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { AUTHOR_GITHUB, COPY_RIGHT } from '../lib/constants'
 import Container from './container'
+import { AUTHOR_GITHUB, COPY_RIGHT } from '../lib/constants'
 import { FaGithub } from 'react-icons/fa6'
 import fa from './fa.module.css'
 

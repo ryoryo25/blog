@@ -1,11 +1,12 @@
-import Container from '../components/container'
-import ListPosts from '../components/list-posts'
-import Layout from '../components/layout'
-import { getAllPosts, range } from '../lib/api'
 import Head from 'next/head'
-import Post, { PostEntry } from '../interfaces/post'
-import { BLOG_NAME, INITIAL_PAGE_NUMBER, POSTS_PER_PAGE } from '../lib/constants'
+import Container from '../components/container'
+import Layout from '../components/layout'
+import ListPosts from '../components/list-posts'
 import Pagination from '../components/pagination'
+import type Post from '../interfaces/post'
+import { PostEntry } from '../interfaces/post'
+import { getAllPosts, range } from '../lib/api'
+import { BLOG_NAME, INITIAL_PAGE_NUMBER, POSTS_PER_PAGE } from '../lib/constants'
 
 type Props = {
   posts: Post[]
