@@ -15,14 +15,16 @@ import { url } from '../../utils/config'
 import TOC from '../../components/toc'
 import ArticleContainer from '../../components/article-container'
 import SidebarContainer from '../../components/sidebar-container'
+import BottomNavigation from '../../components/bottom-navigation'
 
 type Props = {
   post: PostType
-  morePosts: PostType[]
+  prev: PostType
+  next: PostType
   preview?: boolean
 }
 
-export default function Post({ post, morePosts, preview }: Props) {
+export default function Post({ post, prev, next, preview }: Props) {
   const router = useRouter()
   const title = `${post.title} | ${BLOG_NAME}`
   if (!router.isFallback && !post?.slug) {
@@ -47,6 +49,7 @@ export default function Post({ post, morePosts, preview }: Props) {
                 dates={post.dates}
               />
               <PostBody content={post.content} />
+              <BottomNavigation prev={prev} next={next} />
             </ArticleContainer>
             <SidebarContainer>
               <TOC toc={post.toc} />
@@ -69,6 +72,9 @@ export async function getStaticProps({ params }: Params) {
   const post = getPostBySlug(params.slug, arrayPostEntry)
   const { toc, content } = await markdownToHtml(post.content || '')
 
+  const posts = getAllPosts([PostEntry.SLUG, PostEntry.DATES]) // decending order
+  let this_post = posts.findIndex(p => p.slug === params.slug)
+
   return {
     props: {
       post: {
@@ -76,6 +82,8 @@ export async function getStaticProps({ params }: Params) {
         toc,
         content,
       },
+      prev: this_post+1 < posts.length ? posts[this_post+1] : null,
+      next: this_post-1 >= 0 ? posts[this_post-1] : null,
     },
   }
 }
