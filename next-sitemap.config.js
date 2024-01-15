@@ -3,4 +3,3 @@ module.exports = {
   generateRobotsTxt: true,
   outDir: './out'
 }
-console.log(process.env)
