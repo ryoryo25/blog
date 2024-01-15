@@ -77,7 +77,7 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Generate sitemap.xml
         env:
-          SITE_URL: ${{ steps.deployment.outputs.page_url }}
+          SITE_URL: 'https://ryoryo25.github.io/blog/'
         run: ${{ steps.detect-package-manager.outputs.runner }} next-sitemap
       # - name: Static HTML export with Next.js
       #   run: ${{ steps.detect-package-manager.outputs.runner }} next export
