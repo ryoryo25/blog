@@ -74,9 +74,11 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
+        run: ${{ steps.detect-package-manager.outputs.runner }} next build
+      - name: Generate sitemap.xml
         env:
           SITE_URL: ${{ steps.deployment.outputs.page_url }}
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build && next-sitemap
+        run: ${{ steps.detect-package-manager.outputs.runner }} next-sitemap
       # - name: Static HTML export with Next.js
       #   run: ${{ steps.detect-package-manager.outputs.runner }} next export
       - name: Upload artifact
