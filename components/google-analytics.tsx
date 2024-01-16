@@ -2,6 +2,7 @@ type Props = {
   gaId: string
 }
 
+// Reference: https://github.com/vercel/next.js/tree/deprecated-main/examples/with-google-analytics
 export default function GoogleAnalytics({ gaId }: Props) {
   return (
     <>
