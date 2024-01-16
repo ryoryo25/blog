@@ -8,17 +8,6 @@ type Props = {
 }
 
 export default function GoogleAnalytics({ gaId }: Props) {
-  const router = useRouter()
-  useEffect(() => {
-    const handleRouteChange = (url) => {
-      pageview(url)
-    }
-    router.events.on('routeChangeComplete', handleRouteChange)
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [router.events])
-
   return (
     <>
       {/* <!-- Google tag (gtag.js) --> */}
