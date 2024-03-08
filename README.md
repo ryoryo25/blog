@@ -18,7 +18,7 @@ To create the blog posts we use [`remark`](https://github.com/remarkjs/awesome-r
 - [X] ~~*Add previous & next article links*~~ [2023-10-12]
 - [X] ~~*[Separate list of post by 20 posts](https://reffect.co.jp/react/nextjs-markdown-blog/#%E3%83%9A%E3%83%BC%E3%82%B8%E3%83%8D%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E5%AE%9F%E8%A3%85)*~~ [2023-10-05]
 - [X] ~~*Add support for Google Analytics and make it searchable from Google (generate sitemap.xml)*~~ [2024-01-16]
-- [ ] Add tags to posts using front matter
+- [ ] Add tags to posts using front matter; click a tag to show posts containing the tag (ex: ~/tag/[tag], ~/tag/[tag]/page/2)
   ```yaml
   tags: ['foo', 'bar', 'hoge']
   ```
