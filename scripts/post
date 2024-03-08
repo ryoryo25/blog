@@ -1,5 +1,10 @@
 #!/bin/zsh
 
+if [ $# -lt 1 ]; then
+  echo "Usage: "$0" xxx.md"
+  exit 1
+fi
+
 BLOG_DIR=$(cd $(dirname $(readlink -f $0)); cd ..; pwd)
 SCRIPT_DIR=$BLOG_DIR/scripts
 TARGET_MD=$BLOG_DIR/_posts/$1
