@@ -7,6 +7,7 @@ import type Post from '../interfaces/post'
 import { PostEntry } from '../interfaces/post'
 import { getAllPosts, range } from '../lib/api'
 import { BLOG_NAME, INITIAL_PAGE_NUMBER, POSTS_PER_PAGE } from '../lib/constants'
+import AboutBlog from '../components/about-blog'
 
 type Props = {
   posts: Post[]
@@ -20,6 +21,7 @@ export default function Index({ posts, pages }: Props) {
         <title>{BLOG_NAME}</title>
       </Head>
       <Container>
+          <AboutBlog />
           {posts.length > 0 && <ListPosts posts={posts} />}
           <Pagination pages={pages} current_page={INITIAL_PAGE_NUMBER} />
       </Container>
