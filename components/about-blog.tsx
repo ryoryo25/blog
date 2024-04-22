@@ -7,7 +7,7 @@ import fa from './fa.module.css'
 export default function AboutBlog() {
   return (
     <div className="flex justify-center mb-14">
-      <span className="text-neutral-500">ラーメンの記録とかとか技術の備忘録とか</span>
+      <span className="text-neutral-500">ラーメンの記録とか技術の備忘録とか</span>
     </div>
   )
 }
