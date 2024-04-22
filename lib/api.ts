@@ -8,7 +8,8 @@ import { PostEntry } from '../interfaces/post'
 const postsDirectory = join(process.cwd(), '_posts')
 
 export function getPostSlugs() {
-  return fs.readdirSync(postsDirectory)
+  const filesAndDirs = fs.readdirSync(postsDirectory, { withFileTypes: true })
+  return filesAndDirs.filter(e => e.isFile()).map(e => e.name)
 }
 
 export function getPostBySlug(slug: string, fields: string[] = []) {
