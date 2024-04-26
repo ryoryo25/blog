@@ -23,6 +23,7 @@ const unifiedInspect: Plugin = () => {
   }
 }
 
+// Reference: https://zenn.dev/januswel/articles/745787422d425b01e0c1
 function remarkImgSrcAddPrefix(slug: string): Plugin {
   return () => {
     return (tree, file) => {
