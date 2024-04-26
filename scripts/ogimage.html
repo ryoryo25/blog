@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>OG Image Generator</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <style>
+            html {
+                color: #24292F;
+            }
+
+            body {
+                margin: 0;
+                padding: 35px 35px 0;
+            }
+
+            h1 {
+                font-weight: 700;
+                font-family: "Roboto", "Noto Sans JP", sans-serif;
+                font-size: 100px;
+                line-height: 1.4;
+                margin: 0;
+            }
+
+            .logo {
+                height: 18vh;
+                padding: 10px;
+                position: absolute;
+                left: 35px;
+                bottom: 35px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="title"></h1>
+        <img class="logo" src="../public/assets/blog/default/logo.png" />
+        <script>
+            document.addEventListener('DOMContentLoaded', async () => {
+                const injectedProps = await getInjectedProps()
+                const title = document.getElementById('title')
+                title.innerHTML = injectedProps.title
+
+                let fontSize = 100 // px dimension
+                for (;;) {
+                    title.style.fontSize = fontSize + 'px'
+                    if (document.body.clientHeight <= window.innerHeight) {
+                        break
+                    }
+                    fontSize -= 1
+                }
+            })
+        </script>
+    </body>
+</html>

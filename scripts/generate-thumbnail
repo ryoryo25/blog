@@ -1,0 +1,47 @@
+#!/usr/bin/env node
+
+const fs = require('fs')
+const matter = require('gray-matter')
+const path = require('path')
+const puppeteer = require('puppeteer')
+
+const postsDirectory = path.join(process.cwd(), '_posts')
+
+function parseMatter(slug) {
+  const fullPath = path.join(postsDirectory, `${slug}.md`)
+  const fileContents = fs.readFileSync(fullPath, 'utf8')
+  const { data } = matter(fileContents)
+  return data['title']
+}
+
+async function capture(slug, title) {
+  const viewport = {
+    width: 1200,
+    height: 630,
+  }
+  const injectedProps = {
+    title: title,
+  }
+
+  const browser = await puppeteer.launch()
+  const page = await browser.newPage()
+  page.setViewport(viewport)
+  await page.exposeFunction('getInjectedProps', () => injectedProps)
+  await page.goto('file://' + path.resolve('scripts/ogimage.html'))
+  await page.screenshot({
+    type: 'jpeg',
+    path: `public/assets/blog/${slug}/thumbnail.jpg`,
+  })
+  await browser.close()
+}
+
+if (process.argv.length < 3) {
+  console.log('Too few arguments')
+  console.log(`Usage: ${process.argv[1]} [slug-name]`)
+  throw Error()
+}
+
+const slug = process.argv[2]
+const title = parseMatter(slug)
+console.log('Now generating...')
+capture(slug, title).finally(() => console.log('Generation done!'))
