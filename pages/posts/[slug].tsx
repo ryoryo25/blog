@@ -44,6 +44,7 @@ export default function Post({ post, prev, next, preview }: Props) {
                 <meta property="og:image" content={url(post.coverImage)} />
               </Head>
               <PostHeader
+                slug={post.slug}
                 title={post.title}
                 coverImage={post.coverImage}
                 dates={post.dates}
@@ -70,7 +71,7 @@ type Params = {
 
 export async function getStaticProps({ params }: Params) {
   const post = getPostBySlug(params.slug, arrayPostEntry)
-  const { toc, content } = await markdownToHtml(post.content || '')
+  const { toc, content } = await markdownToHtml(params.slug, post.content || '')
 
   const posts = getAllPosts([PostEntry.SLUG, PostEntry.DATES]) // decending order
   let this_post = posts.findIndex(p => p.slug === params.slug)

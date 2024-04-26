@@ -1,4 +1,4 @@
-import { unified } from 'unified'
+import { Plugin, unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkGfm from 'remark-gfm'
 import remarkRehype from 'remark-rehype'
@@ -6,13 +6,43 @@ import rehypeHighlight from 'rehype-highlight'
 import rehypeSlug from 'rehype-slug'
 import rehypeToc from '@jsdevtools/rehype-toc'
 import rehypeStringify from 'rehype-stringify'
-import { toHtml } from 'hast-util-to-html'
 
-export default async function markdownToHtml(markdown: string) {
+import { toHtml } from 'hast-util-to-html'
+import { visit } from 'unist-util-visit'
+import { inspect } from 'unist-util-inspect'
+import { Image } from 'mdast'
+
+import { ASSETS_PREFIX } from './constants'
+import { url } from '../utils/config'
+
+const URL_PREFIX = /https?:\/\//
+
+const unifiedInspect: Plugin = () => {
+  return (tree, file) => {
+    console.log(inspect(tree))
+  }
+}
+
+function remarkImgSrcAddPrefix(slug: string): Plugin {
+  return () => {
+    return (tree, file) => {
+      visit(tree, 'image', (node: Image, index, parent) => {
+        const originalSrc = node.url
+        if (originalSrc.startsWith(ASSETS_PREFIX) || URL_PREFIX.test(originalSrc)) {
+          return
+        }
+        node.url = url(`${ASSETS_PREFIX}/${slug}/${originalSrc}`)
+      })
+    }
+  }
+}
+
+export default async function markdownToHtml(slug: string, markdown: string) {
   let tocNode = null
   const result = await unified()
     .use(remarkParse)
     .use(remarkGfm)
+    .use(remarkImgSrcAddPrefix(slug))
     .use(remarkRehype)
     .use(rehypeHighlight)
     .use(rehypeSlug) // add ids to h* tags
