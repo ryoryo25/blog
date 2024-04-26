@@ -14,6 +14,7 @@ function parseMatter(slug) {
   return data['title']
 }
 
+// Reference: https://blog.tai2.net/puppeteer-ogimage.html
 async function capture(slug, title) {
   const viewport = {
     width: 1200,
