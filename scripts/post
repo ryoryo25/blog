@@ -1,13 +1,13 @@
 #!/bin/zsh
 
 if [ $# -lt 1 ]; then
-  echo "Usage: "$0" xxx.md"
+  echo "Usage: "$0" [slug-name]"
   exit 1
 fi
 
 BLOG_DIR=$(cd $(dirname $(readlink -f $0)); cd ..; pwd)
 SCRIPT_DIR=$BLOG_DIR/scripts
-TARGET_MD=$BLOG_DIR/_posts/$1
+TARGET_MD=$BLOG_DIR/_posts/$1.md
 
 # 投稿日付 or 更新日付を記入; attach-date requires full path
 echo 'Attach date'
