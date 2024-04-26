@@ -1,0 +1,21 @@
+#!/usr/bin/env python
+
+import os
+import sys
+import shutil
+
+if len(sys.argv) < 2:
+    print("Too few arguments")
+    print(f"Usage: {sys.argv[0]} [article-name]")
+    sys.exit(1)
+
+article_name = sys.argv[1]
+answer = input("Has photos? (yes/no): ")
+has_photos = answer.lower() in ["y", "ye", "yes"]
+
+print("Create new post in draft directory")
+shutil.copyfile("./_posts/template/template.md", f"./_posts/draft/{article_name}.md")
+
+if has_photos:
+    print("Make directory for photos")
+    os.makedirs("./public/assets/blog/" + article_name)
