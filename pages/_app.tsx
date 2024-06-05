@@ -1,6 +1,6 @@
 import { AppProps } from 'next/app'
 import '../styles/index.css'
-import { roboto, robotomono, notojp } from '../utils/font'
+import { jbmono, notojp, roboto } from '../utils/font'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { pageview } from '../lib/gtag'
@@ -19,7 +19,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events])
 
   return (
-    <div className={`${roboto.variable} ${robotomono.variable} ${notojp.variable} font-sans text-base-color`}>
+    <div className={`${roboto.variable} ${jbmono.variable} ${notojp.variable} font-sans text-base-color`}>
       <Component {...pageProps} />
     </div>
   )

@@ -1,4 +1,4 @@
-import { Roboto_Flex, Roboto_Mono, Noto_Sans_JP } from 'next/font/google'
+import { JetBrains_Mono, Noto_Sans_JP, Roboto_Flex } from 'next/font/google'
 
 export const roboto = Roboto_Flex({
     subsets: ['latin'],
@@ -6,10 +6,10 @@ export const roboto = Roboto_Flex({
     variable: '--font-roboto',
 })
 
-export const robotomono = Roboto_Mono({
+export const jbmono = JetBrains_Mono({
     subsets: ['latin'],
     display: 'swap',
-    variable: '--font-roboto-mono',
+    variable: '--font-jetbrains-mono',
 })
 
 export const notojp = Noto_Sans_JP({

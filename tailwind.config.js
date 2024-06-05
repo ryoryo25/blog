@@ -30,10 +30,10 @@ module.exports = {
       },
       fontFamily: {
         roboto: ['var(--font-roboto)'],
-        robotomono: ['var(--font-roboto-mono)'],
+        jbmono: ['var(--font-jetbrains-mono)'],
         notojp: ['var(--font-notojp)'],
         sans: ['var(--font-roboto)', 'var(--font-notojp)', ...defaultTheme.fontFamily.sans],
-        mono: ['var(--font-roboto-mono)', ...defaultTheme.fontFamily.mono],
+        mono: ['var(--font-jetbrains-mono)', ...defaultTheme.fontFamily.mono],
       },
       boxShadow: {
         sm: '0 5px 10px rgba(0, 0, 0, 0.12)',
