@@ -13,7 +13,7 @@ import TOC from '../../components/toc'
 import type Post from '../../interfaces/post'
 import { PostEntry, arrayPostEntry } from '../../interfaces/post'
 import { getPostBySlug, getAllPosts } from '../../lib/api'
-import { BLOG_NAME } from '../../lib/constants'
+import { BLOG_NAME, OG_IMAGE_PREFIX } from '../../lib/constants'
 import markdownToHtml from '../../lib/markdownToHtml'
 import { url } from '../../utils/config'
 
@@ -41,7 +41,8 @@ export default function Post({ post, prev, next, preview }: Props) {
               <Head>
                 {/* inject head data */}
                 <title>{title}</title>
-                <meta property="og:image" content={url(post.coverImage)} />
+                <meta property="og:title" content={title} />
+                <meta property="og:image" content={`${OG_IMAGE_PREFIX}/${post.slug}/${post.coverImage}`} />
               </Head>
               <PostHeader
                 slug={post.slug}

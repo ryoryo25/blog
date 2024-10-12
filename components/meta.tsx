@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { BLOG_NAME, HOME_OG_IMAGE_URL } from '../lib/constants'
+import { BLOG_NAME } from '../lib/constants'
 import { url } from '../utils/config'
 
 export default function Meta() {
@@ -37,7 +37,8 @@ export default function Meta() {
         name="description"
         content={BLOG_NAME}
       />
-      <meta property="og:image" content={HOME_OG_IMAGE_URL} />
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content={BLOG_NAME} />
     </Head>
   )
 }
