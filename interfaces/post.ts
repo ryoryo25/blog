@@ -4,6 +4,7 @@ type PostType = {
   slug: string
   title: string
   dates: Dates
+  tags: string[]
   coverImage: string
   toc: string
   content: string
@@ -13,6 +14,7 @@ export enum PostEntry {
   SLUG = 'slug',
   TITLE = 'title',
   DATES = 'dates',
+  TAGS = 'tags',
   COVER_IMAGE = 'coverImage',
   TOC = 'toc',
   CONTENT = 'content',
