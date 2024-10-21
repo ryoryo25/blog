@@ -1,13 +1,13 @@
 import Head from 'next/head'
-import Container from '../components/container'
-import Layout from '../components/layout'
-import ListPosts from '../components/list-posts'
-import Pagination from '../components/pagination'
-import type Post from '../interfaces/post'
-import { PostEntry } from '../interfaces/post'
-import { getAllPosts, range } from '../lib/api'
-import { BLOG_NAME, INITIAL_PAGE_NUMBER, OG_IMAGE_DEFAULT, POSTS_PER_PAGE } from '../lib/constants'
-import AboutBlog from '../components/about-blog'
+import Container from '@/components/container'
+import Layout from '@/components/layout'
+import ListPosts from '@/components/list-posts'
+import Pagination from '@/components/pagination'
+import type Post from '@/interfaces/post'
+import { PostEntry } from '@/interfaces/post'
+import { getAllPosts, range } from '@/lib/api'
+import { BLOG_NAME, INITIAL_PAGE_NUMBER, OG_IMAGE_DEFAULT, POSTS_PER_PAGE } from '@/lib/constants'
+import AboutBlog from '@/components/about-blog'
 
 type Props = {
   posts: Post[]
