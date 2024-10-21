@@ -75,7 +75,7 @@ export async function getStaticProps({ params }: Params) {
   const { toc, content } = await markdownToHtml(params.slug, post.content || '')
 
   const posts = getAllPosts([PostEntry.SLUG, PostEntry.DATES]) // decending order
-  let this_post = posts.findIndex(p => p.slug === params.slug)
+  const this_post = posts.findIndex(p => p.slug === params.slug)
 
   return {
     props: {
