@@ -1,7 +1,7 @@
 import fs from 'fs'
 import matter from 'gray-matter'
 import { join } from 'path'
-import { DEFAULT_COVER } from './constants'
+import { DEFAULT_COVER, POSTS_PER_PAGE } from './constants'
 import type Dates from '../interfaces/dates'
 import { PostEntry } from '../interfaces/post'
 
@@ -72,4 +72,8 @@ export function getAllPosts(fields: string[] = []) {
 
 export function range(start: number, end: number, length = end - start + 1) {
   return Array.from({ length }, (_, i) => start + i)
+}
+
+export function paginationRange(numberOfPosts: number) {
+  return range(1, Math.ceil(numberOfPosts / POSTS_PER_PAGE))
 }

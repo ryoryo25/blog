@@ -7,7 +7,7 @@ import ListPosts from '@/components/list-posts'
 import Pagination from '@/components/pagination'
 import type Post from '@/interfaces/post'
 import { PostEntry } from '@/interfaces/post'
-import { getAllPosts, range } from '@/lib/api'
+import { getAllPosts, paginationRange } from '@/lib/api'
 import { BLOG_NAME, INITIAL_PAGE_NUMBER, POSTS_PER_PAGE } from '@/lib/constants'
 
 type Props = {
@@ -51,7 +51,7 @@ export async function getStaticProps({ params }: Params) {
     PostEntry.SLUG,
     PostEntry.COVER_IMAGE,
   ])
-  const pages = range(1, Math.ceil(posts.length / POSTS_PER_PAGE))
+  const pages = paginationRange(posts.length)
   const page = Number(params.page)
   const slicedPosts = posts.slice((page - 1) * POSTS_PER_PAGE,
                                   page * POSTS_PER_PAGE) // end is exclusive
@@ -68,7 +68,7 @@ export async function getStaticProps({ params }: Params) {
 export async function getStaticPaths() {
   const posts = getAllPosts([PostEntry.SLUG])
   const count_posts = posts.length
-  const pageList = range(1, Math.ceil(count_posts / POSTS_PER_PAGE)) // [1, ...]
+  const pageList = paginationRange(count_posts) // [1, ...]
 
   return {
     paths: pageList.map((page) => {
