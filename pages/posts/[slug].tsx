@@ -71,7 +71,7 @@ type Params = {
 
 export async function getStaticProps({ params }: Params) {
   const post = getPostBySlug(params.slug, arrayPostEntry)
-  const { toc, content } = await markdownToHtml(params.slug, post.content || '')
+  const { toc, content } = await markdownToHtml(params.slug, (post.content as string) || '')
 
   const posts = getAllPosts([PostEntry.SLUG, PostEntry.DATES]) // decending order
   const this_post = posts.findIndex(p => p.slug === params.slug)
