@@ -2,7 +2,7 @@ import Container from "@/components/container"
 import Layout from "@/components/layout"
 import ListPosts from "@/components/list-posts"
 import Pagination from "@/components/pagination"
-import TagTitle from "@/components/tag-title"
+import TagPostsTitle from "@/components/tag-posts-title"
 import type Post from "@/interfaces/post"
 import { PostEntry } from "@/interfaces/post"
 import { getAllPosts, paginationRange } from "@/lib/api"
@@ -32,7 +32,7 @@ export default function Page({ posts, pages, page, tag }: Props) {
           <title>{title}</title>
         </Head>
         <Container>
-            <TagTitle tag={tag} />
+            <TagPostsTitle tag={tag} />
             {posts.length > 0 && <ListPosts posts={posts} />}
             <Pagination
               pages={pages}

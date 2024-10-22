@@ -7,7 +7,7 @@ import Pagination from "@/components/pagination"
 import type Post from "@/interfaces/post"
 import { PostEntry } from "@/interfaces/post"
 import { getAllPosts, paginationRange } from "@/lib/api"
-import TagTitle from "@/components/tag-title"
+import TagPostsTitle from "@/components/tag-posts-title"
 
 type Props = {
   posts: Post[]
@@ -23,7 +23,7 @@ export default function Tag({ posts, pages, tag }: Props) {
           <title>{`${BLOG_NAME} | Tag: ${tag}`}</title>
         </Head>
         <Container>
-            <TagTitle tag={tag} />
+            <TagPostsTitle tag={tag} />
             {posts.length > 0 && <ListPosts posts={posts} />}
             <Pagination
               pages={pages}
