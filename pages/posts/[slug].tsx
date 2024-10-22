@@ -48,6 +48,7 @@ export default function Post({ post, prev, next, preview }: Props) {
                 title={post.title}
                 coverImage={post.coverImage}
                 dates={post.dates}
+                tags={post.tags}
               />
               <PostBody content={post.content} />
               <BottomNavigation prev={prev} next={next} />
