@@ -1,21 +1,20 @@
 import ErrorPage from 'next/error'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import ArticleContainer from '../../components/article-container'
-import BottomNavigation from '../../components/bottom-navigation'
-import Container from '../../components/container'
-import Layout from '../../components/layout'
-import PostBody from '../../components/post-body'
-import PostHeader from '../../components/post-header'
-import PostTitle from '../../components/post-title'
-import SidebarContainer from '../../components/sidebar-container'
-import TOC from '../../components/toc'
-import type Post from '../../interfaces/post'
-import { PostEntry, arrayPostEntry } from '../../interfaces/post'
-import { getPostBySlug, getAllPosts } from '../../lib/api'
-import { BLOG_NAME, OG_IMAGE_PREFIX } from '../../lib/constants'
-import markdownToHtml from '../../lib/markdownToHtml'
-import { url } from '../../utils/config'
+import ArticleContainer from '@/components/article-container'
+import BottomNavigation from '@/components/bottom-navigation'
+import Container from '@/components/container'
+import Layout from '@/components/layout'
+import PostBody from '@/components/post-body'
+import PostHeader from '@/components/post-header'
+import PostTitle from '@/components/post-title'
+import SidebarContainer from '@/components/sidebar-container'
+import TOC from '@/components/toc'
+import type Post from '@/interfaces/post'
+import { PostEntry, arrayPostEntry } from '@/interfaces/post'
+import { getPostBySlug, getAllPosts } from '@/lib/api'
+import { BLOG_NAME, OG_IMAGE_PREFIX } from '@/lib/constants'
+import markdownToHtml from '@/lib/markdownToHtml'
 
 type Props = {
   post: Post
@@ -49,6 +48,7 @@ export default function Post({ post, prev, next, preview }: Props) {
                 title={post.title}
                 coverImage={post.coverImage}
                 dates={post.dates}
+                tags={post.tags}
               />
               <PostBody content={post.content} />
               <BottomNavigation prev={prev} next={next} />
@@ -72,7 +72,7 @@ type Params = {
 
 export async function getStaticProps({ params }: Params) {
   const post = getPostBySlug(params.slug, arrayPostEntry)
-  const { toc, content } = await markdownToHtml(params.slug, post.content || '')
+  const { toc, content } = await markdownToHtml(params.slug, (post.content as string) || '')
 
   const posts = getAllPosts([PostEntry.SLUG, PostEntry.DATES]) // decending order
   const this_post = posts.findIndex(p => p.slug === params.slug)

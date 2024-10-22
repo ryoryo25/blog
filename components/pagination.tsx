@@ -4,45 +4,55 @@ import { ELLIPSIS, DISPLAY_ITEMS, ARROW_PREV, ARROW_NEXT } from "../lib/constant
 
 type Props = {
   pages: number[]
-  current_page: number
+  currentPage: number
+  basePath?: string
 }
 
-export default function Pagination({ pages, current_page }: Props) {
-  const first_page = 1
-  const last_page = pages.slice(-1)[0]
+export default function Pagination({ pages, currentPage, basePath }: Props) {
+  const firstPage = 1
+  const lastPage = pages.slice(-1)[0]
 
-  let display_pages = null
+  let displayPages = null
   if (pages.length <= DISPLAY_ITEMS + 4) {
-    display_pages = pages
-  }else if (current_page < first_page + DISPLAY_ITEMS) {
-    // + 2 means first_page & ellipsis
-    display_pages = [...pages.slice(0, DISPLAY_ITEMS + 2), ELLIPSIS, last_page]
-  } else if (current_page > last_page - DISPLAY_ITEMS) {
-    // + 2 means ellipsis & last_page
-    display_pages = [first_page, ELLIPSIS, ...pages.slice(-(DISPLAY_ITEMS + 2))]
+    displayPages = pages
+  }else if (currentPage < firstPage + DISPLAY_ITEMS) {
+    // + 2 means firstPage & ellipsis
+    displayPages = [...pages.slice(0, DISPLAY_ITEMS + 2), ELLIPSIS, lastPage]
+  } else if (currentPage > lastPage - DISPLAY_ITEMS) {
+    // + 2 means ellipsis & lastPage
+    displayPages = [firstPage, ELLIPSIS, ...pages.slice(-(DISPLAY_ITEMS + 2))]
   } else {
-    display_pages = [first_page, ELLIPSIS,
-                     ...takeAround(pages, current_page - 1, Math.floor(DISPLAY_ITEMS / 2)),
-                    ELLIPSIS, last_page]
+    displayPages = [firstPage, ELLIPSIS,
+                     ...takeAround(pages, currentPage - 1, Math.floor(DISPLAY_ITEMS / 2)),
+                    ELLIPSIS, lastPage]
   }
 
   return (
     <div className="pagination flex items-center justify-around">
       <PaginationArrow
         role={ARROW_PREV}
-        current_page={current_page}
-        first_page={first_page}
-        last_page={last_page}
+        currentPage={currentPage}
+        firstPage={firstPage}
+        lastPage={lastPage}
+        basePath={basePath}
       />
-      <div className="md:hidden whitespace-nowrap">{`${current_page} / ${pages.length}`}</div>
+      <div className="md:hidden whitespace-nowrap">{`${currentPage} / ${pages.length}`}</div>
       <div className="hidden md:flex items-center justify-center">
-        {display_pages.map((page, i) => <PaginationItem key={i} page={page} current_page={current_page} />)}
+        {displayPages.map((page, i) => (
+          <PaginationItem
+            key={i}
+            page={page}
+            currentPage={currentPage}
+            basePath={basePath}
+          />
+        ))}
       </div>
       <PaginationArrow
         role={ARROW_NEXT}
-        current_page={current_page}
-        first_page={first_page}
-        last_page={last_page}
+        currentPage={currentPage}
+        firstPage={firstPage}
+        lastPage={lastPage}
+        basePath={basePath}
       />
     </div>
   )
