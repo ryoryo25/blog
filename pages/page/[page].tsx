@@ -31,7 +31,7 @@ export default function Page({ posts, pages, page }: Props) {
         </Head>
         <Container>
             {posts.length > 0 && <ListPosts posts={posts} />}
-            <Pagination pages={pages} current_page={page} />
+            <Pagination pages={pages} currentPage={page} />
         </Container>
       </Layout>
     </>

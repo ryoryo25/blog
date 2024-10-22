@@ -25,7 +25,7 @@ export default function Index({ posts, pages }: Props) {
       <Container>
           <AboutBlog />
           {posts.length > 0 && <ListPosts posts={posts} />}
-          <Pagination pages={pages} current_page={INITIAL_PAGE_NUMBER} />
+          <Pagination pages={pages} currentPage={INITIAL_PAGE_NUMBER} />
       </Container>
     </Layout>
   )
