@@ -5,33 +5,38 @@ import fa from './fa.module.css'
 
 type Props = {
   role: string
-  current_page: number
-  first_page: number
-  last_page: number
+  currentPage: number
+  firstPage: number
+  lastPage: number
+  basePath?: string
 }
 
-export default function PaginationArrow({ role, current_page, first_page, last_page }: Props) {
+export default function PaginationArrow({ role, currentPage, firstPage, lastPage, basePath }: Props) {
   const style = 'px-4 py-3 min-w-[3em] text-center'
   const hidden_style = `${style} invisible`
 
   let arrow = null
-  let arrow_page = current_page
-  let arrow_style = style
+  let arrowPage = currentPage
+  let arrowStyle = style
   if (role == ARROW_PREV) {
     arrow = <FaAngleLeft className={`text-xl ${fa['fa']}`} />
-    arrow_page -= 1
-    if (current_page === first_page) {
-      arrow_style = hidden_style
+    arrowPage -= 1
+    if (currentPage === firstPage) {
+      arrowStyle = hidden_style
     }
   } else if (role === ARROW_NEXT) {
     arrow = <FaAngleRight className={`text-xl ${fa['fa']}`} />
-    arrow_page += 1
-    if (current_page === last_page) {
-      arrow_style = hidden_style
+    arrowPage += 1
+    if (currentPage === lastPage) {
+      arrowStyle = hidden_style
     }
   }
+
+  const linkPath = (basePath || '') + `/page/${arrowPage}`
+  const psuedoLinkPath = (basePath || '') + `/page/[page]`
+
   return (
-    <Link as={`/page/${arrow_page}`} href="/page/[page]" className={arrow_style}>
+    <Link as={linkPath} href={psuedoLinkPath} className={arrowStyle}>
       {arrow}
     </Link>
   )
