@@ -35,6 +35,7 @@ export async function getStaticProps() {
   const posts = getAllPosts([
     PostEntry.TITLE,
     PostEntry.DATES,
+    PostEntry.TAGS,
     PostEntry.SLUG,
     PostEntry.COVER_IMAGE,
   ])

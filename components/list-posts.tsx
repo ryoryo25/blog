@@ -15,6 +15,7 @@ export default function ListPosts({ posts }: Props) {
             title={post.title}
             coverImage={post.coverImage}
             dates={post.dates}
+            tags={post.tags}
             slug={post.slug}
           />
         ))}
