@@ -98,13 +98,3 @@ export async function getStaticPaths() {
     fallback: false,
   }
 }
-
-
-// pageList.map((page) => {
-//   return {
-//     params: {
-//       tag:
-//       page: page.toString(),
-//     },
-//   }
-// })
