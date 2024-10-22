@@ -8,6 +8,7 @@ import type Post from "@/interfaces/post"
 import { PostEntry } from "@/interfaces/post"
 import { getAllPosts, paginationRange } from "@/lib/api"
 import TagPostsTitle from "@/components/tag-posts-title"
+import { union } from "@/lib/set-operations"
 
 type Props = {
   posts: Post[]
@@ -69,7 +70,7 @@ export async function getStaticPaths() {
   const allTags = Array.from(
     getAllPosts([PostEntry.TAGS])
       .map(e => new Set(e.tags))
-      .reduce((p, c) => p.union(c), new Set())
+      .reduce((p, c) => union(p, c), new Set())
   )
 
   return {

@@ -7,6 +7,7 @@ import type Post from "@/interfaces/post"
 import { PostEntry } from "@/interfaces/post"
 import { getAllPosts, paginationRange } from "@/lib/api"
 import { BLOG_NAME, INITIAL_PAGE_NUMBER, POSTS_PER_PAGE } from "@/lib/constants"
+import { union } from "@/lib/set-operations"
 import Head from "next/head"
 import { useRouter } from "next/router"
 import { useEffect } from "react"
@@ -81,7 +82,7 @@ export async function getStaticPaths() {
   const allTags = Array.from(
     allPosts
       .map(e => new Set(e.tags))
-      .reduce((p, c) => p.union(c), new Set())
+      .reduce((p, c) => union(p, c), new Set())
   )
 
   return {
