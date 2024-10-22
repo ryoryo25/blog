@@ -14,7 +14,7 @@ export const OG_IMAGE_PREFIX = "https://ryoryo25.github.io/blog/assets/blog"
 export const OG_IMAGE_DEFAULT = `${OG_IMAGE_PREFIX}/default/cover.png`
 
 // constants for pagination
-export const POSTS_PER_PAGE = 4
+export const POSTS_PER_PAGE = 10
 export const INITIAL_PAGE_NUMBER = 1
 export const DISPLAY_ITEMS = 5
 export const ELLIPSIS = -1
