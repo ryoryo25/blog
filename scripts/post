@@ -20,4 +20,4 @@ $SCRIPT_DIR/protect-photo $TARGET_MD
 
 # commit & push
 echo 'Uploading'
-git add $BLOG_DIR/. && git commit -m 'post/update '$1 && git push origin main
+git add $TARGET_MD && git commit -m 'post/update '$1 && git push origin main
