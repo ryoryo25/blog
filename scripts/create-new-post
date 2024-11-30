@@ -10,7 +10,7 @@ if len(sys.argv) < 2:
     sys.exit(1)
 
 article_name = sys.argv[1]
-answer = input("Has photos? (yes/no): ")
+answer = input("Has photos/thumbnail? (yes/no): ")
 has_photos = answer.lower() in ["y", "ye", "yes"]
 
 print("Create new post in draft directory")
