@@ -1,5 +1,6 @@
 import { Plugin, unified } from 'unified'
 import remarkParse from 'remark-parse'
+import remarkLinkCard from 'remark-link-card-plus'
 import remarkGfm from 'remark-gfm'
 import remarkRehype from 'remark-rehype'
 import rehypeHighlight from 'rehype-highlight'
@@ -42,9 +43,10 @@ export default async function markdownToHtml(slug: string, markdown: string) {
   let tocNode = null
   const result = await unified()
     .use(remarkParse)
+    .use(remarkLinkCard)
     .use(remarkGfm)
     .use(remarkImgSrcAddPrefix(slug))
-    .use(remarkRehype)
+    .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeHighlight)
     .use(rehypeSlug) // add ids to h* tags
     .use(rehypeToc, {
@@ -54,7 +56,7 @@ export default async function markdownToHtml(slug: string, markdown: string) {
         return false
       },
     })
-    .use(rehypeStringify)
+    .use(rehypeStringify, { allowDangerousHtml: true })
     .process(markdown)
 
   const toc = tocNode ? toHtml(tocNode) : ''
