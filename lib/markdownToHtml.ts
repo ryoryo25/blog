@@ -43,7 +43,7 @@ export default async function markdownToHtml(slug: string, markdown: string) {
   let tocNode = null
   const result = await unified()
     .use(remarkParse)
-    .use(remarkLinkCard, { cache: true })
+    .use(remarkLinkCard, { cache: false })
     .use(remarkGfm)
     .use(remarkImgSrcAddPrefix(slug))
     .use(remarkRehype, { allowDangerousHtml: true })
