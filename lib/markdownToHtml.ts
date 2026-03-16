@@ -2,10 +2,12 @@ import { Plugin, unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkLinkCard from 'remark-link-card-plus'
 import remarkGfm from 'remark-gfm'
+import remarkMath from 'remark-math'
 import remarkRehype from 'remark-rehype'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeSlug from 'rehype-slug'
 import rehypeToc from '@jsdevtools/rehype-toc'
+import rehypeKatex from 'rehype-katex'
 import rehypeStringify from 'rehype-stringify'
 
 import { toHtml } from 'hast-util-to-html'
@@ -114,8 +116,10 @@ export default async function markdownToHtml(slug: string, markdown: string) {
     .use(remarkYoutubeEmbed)
     .use(remarkLinkCard, { cache: false })
     .use(remarkGfm)
+    .use(remarkMath)
     .use(remarkImgSrcAddPrefix(slug))
     .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeKatex)
     .use(rehypeHighlight)
     .use(rehypeSlug) // add ids to h* tags
     .use(rehypeToc, {
