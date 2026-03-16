@@ -1,5 +1,6 @@
 import { AppProps } from 'next/app'
 import '../styles/index.css'
+import 'katex/dist/katex.min.css'
 import { jbmono, notojp, roboto } from '../utils/font'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
