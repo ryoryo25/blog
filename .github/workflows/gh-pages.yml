@@ -82,6 +82,12 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      - name: Sync blog assets
+        run: |
+          chmod +x scripts/sync-assets.sh
+          ./scripts/sync-assets.sh
+        env:
+          GITHUB_ACTIONS: "true"
       - name: Build with Next.js
         env:
           GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
