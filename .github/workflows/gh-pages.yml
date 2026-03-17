@@ -9,6 +9,10 @@ on:
   push:
     branches: ["main"]
 
+  # Allows you to trigger this workflow from other repositories
+  repository_dispatch:
+    types: [content_updated]
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -31,6 +35,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: recursive
+      - name: Update submodules to latest
+        run: git submodule update --init --remote content
       - name: Detect package manager
         id: detect-package-manager
         run: |

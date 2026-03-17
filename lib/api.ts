@@ -1,11 +1,42 @@
 import fs from 'fs'
 import matter from 'gray-matter'
-import { join } from 'path'
+import { join, relative } from 'path'
+import { execSync } from 'child_process'
 import { DEFAULT_COVER, POSTS_PER_PAGE } from './constants'
 import type Dates from '../interfaces/dates'
 import { PostEntry } from '../interfaces/post'
 
-const postsDirectory = join(process.cwd(), '_posts')
+const contentDirectory = join(process.cwd(), 'content')
+const postsDirectory = fs.existsSync(join(contentDirectory, 'posts')) 
+  ? join(contentDirectory, 'posts') 
+  : join(process.cwd(), '_posts')
+
+function getGitDates(filePath: string): Dates {
+  try {
+    // If the file is inside the content directory, run git log there
+    const isInsideContent = filePath.startsWith(contentDirectory)
+    const gitCwd = isInsideContent ? contentDirectory : process.cwd()
+    const gitRelativePath = relative(gitCwd, filePath)
+
+    // Get the first commit date (creation date)
+    const postDate = execSync(`git log --follow --format=%aI "${gitRelativePath}" | tail -1`, { cwd: gitCwd, encoding: 'utf8' }).trim()
+    // Get the last commit date (update date)
+    const updateDate = execSync(`git log -1 --format=%aI "${gitRelativePath}"`, { cwd: gitCwd, encoding: 'utf8' }).trim()
+
+    if (postDate && updateDate) {
+      return { postDate, updateDate }
+    }
+  } catch (error) {
+    // Fallback if git command fails or file is not tracked
+  }
+
+  // Fallback to filesystem stats
+  const stats = fs.statSync(filePath)
+  return {
+    postDate: stats.birthtime.toISOString(),
+    updateDate: stats.mtime.toISOString(),
+  }
+}
 
 export function getPostSlugs() {
   const filesAndDirs = fs.readdirSync(postsDirectory, { withFileTypes: true })
@@ -17,9 +48,10 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
   const fullPath = join(postsDirectory, `${realSlug}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = matter(fileContents)
+  const gitDates = getGitDates(fullPath)
 
   type Items = {
-    [key: string]: string | string[]
+    [key: string]: string | string[] | Dates | null
   }
 
   const items: Items = {}
@@ -36,6 +68,13 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
     }
     if (field === PostEntry.TOC) {
       items[field] = null
+      continue
+    }
+    if (field === PostEntry.DATES) {
+      items[field] = {
+        postDate: (data[field]?.postDate as string) || gitDates.postDate,
+        updateDate: (data[field]?.updateDate as string) || gitDates.updateDate,
+      }
       continue
     }
     if (field === PostEntry.COVER_IMAGE && data[field] === null) {

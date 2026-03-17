@@ -1,8 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next",
-    "build": "next build && next-sitemap",
+    "dev": "chmod +x scripts/sync-assets.sh && ./scripts/sync-assets.sh && next",
+    "build": "chmod +x scripts/sync-assets.sh && ./scripts/sync-assets.sh && next build && next-sitemap",
     "start": "next start",
     "typecheck": "tsc"
   },
