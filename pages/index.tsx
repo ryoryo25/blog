@@ -38,7 +38,7 @@ export async function getStaticProps() {
     PostEntry.TAGS,
     PostEntry.SLUG,
     PostEntry.COVER_IMAGE,
-  ])
+  ]) as Post[]
   const pages = paginationRange(posts.length)
   const page = INITIAL_PAGE_NUMBER
   const slicedPosts = posts.slice((page - 1) * POSTS_PER_PAGE,

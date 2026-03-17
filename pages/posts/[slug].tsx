@@ -74,7 +74,7 @@ export async function getStaticProps({ params }: Params) {
   const post = getPostBySlug(params.slug, arrayPostEntry)
   const { toc, content } = await markdownToHtml(params.slug, (post.content as string) || '')
 
-  const posts = getAllPosts([PostEntry.SLUG, PostEntry.DATES]) // decending order
+  const posts = getAllPosts([PostEntry.SLUG, PostEntry.DATES]) as Post[] // decending order
   const this_post = posts.findIndex(p => p.slug === params.slug)
 
   return {
@@ -91,7 +91,7 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts([PostEntry.SLUG])
+  const posts = getAllPosts([PostEntry.SLUG]) as Post[]
 
   return {
     paths: posts.map((post) => {

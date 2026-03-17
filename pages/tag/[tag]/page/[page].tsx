@@ -54,13 +54,13 @@ type Params = {
 }
 
 export async function getStaticProps({ params }: Params) {
-  const posts = getAllPosts([
+  const posts = (getAllPosts([
     PostEntry.TITLE,
     PostEntry.DATES,
     PostEntry.TAGS,
     PostEntry.SLUG,
     PostEntry.COVER_IMAGE,
-  ]).filter(post => post.tags.includes(params.tag))
+  ]) as Post[]).filter(post => post.tags.includes(params.tag))
 
   const pages = paginationRange(posts.length)
   const page = Number(params.page)
@@ -78,7 +78,7 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export async function getStaticPaths() {
-  const allPosts = getAllPosts([PostEntry.TAGS])
+  const allPosts = getAllPosts([PostEntry.TAGS]) as Post[]
   const allTags = Array.from(
     allPosts
       .map(e => new Set(e.tags))

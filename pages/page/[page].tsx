@@ -51,7 +51,7 @@ export async function getStaticProps({ params }: Params) {
     PostEntry.TAGS,
     PostEntry.SLUG,
     PostEntry.COVER_IMAGE,
-  ])
+  ]) as Post[]
   const pages = paginationRange(posts.length)
   const page = Number(params.page)
   const slicedPosts = posts.slice((page - 1) * POSTS_PER_PAGE,
@@ -67,7 +67,7 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts([PostEntry.SLUG])
+  const posts = getAllPosts([PostEntry.SLUG]) as Post[]
   const count_posts = posts.length
   const pageList = paginationRange(count_posts) // [1, ...]
 
